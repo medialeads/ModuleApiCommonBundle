@@ -1,0 +1,97 @@
+Module\ApiCommonBundle\ModuleContact\Request\Create:
+    properties:
+        companyName:
+            - Length:
+                max: 255
+        lastName:
+            - Length:
+                max: 255
+        firstName:
+            - Length:
+                max: 255
+        email:
+            - Email: ~
+            - Length:
+                max: 255
+        countryCode:
+            - Country: ~
+        administrativeArea:
+            - Length:
+                max: 255
+        locality:
+            - Length:
+                max: 255
+        dependentLocality:
+            - Length:
+                max: 255
+        postalCode:
+            - Length:
+                max: 255
+        sortingCode:
+            - Length:
+                max: 255
+        addressLine1:
+            - Length:
+                max: 255
+        addressLine2:
+            - Length:
+                max: 255
+        username:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        encryptedPassword:
+            - NotBlank: ~
+        iv:
+            - NotBlank: ~
+
+Module\ApiCommonBundle\ModuleContact\Request\Edit:
+    properties:
+        companyName:
+            - Length:
+                max: 255
+        lastName:
+            - Length:
+                max: 255
+        firstName:
+            - Length:
+                max: 255
+        email:
+            - Email: ~
+            - Length:
+                max: 255
+        countryCode:
+            - Country: ~
+        administrativeArea:
+            - Length:
+                max: 255
+        locality:
+            - Length:
+                max: 255
+        dependentLocality:
+            - Length:
+                max: 255
+        postalCode:
+            - Length:
+                max: 255
+        sortingCode:
+            - Length:
+                max: 255
+        addressLine1:
+            - Length:
+                max: 255
+        addressLine2:
+            - Length:
+                max: 255
+        username:
+            - Length:
+                max: 255
+
+Module\ApiCommonBundle\ModuleContact\Request\Login:
+    properties:
+        username:
+            - NotBlank: ~
+        encryptedPassword:
+            - NotBlank: ~
+        iv:
+            - NotBlank: ~

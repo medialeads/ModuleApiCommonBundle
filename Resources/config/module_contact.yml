@@ -1,0 +1,3 @@
+services:
+    module_api_common.module_contact.helper:
+        class: Module\ApiCommonBundle\ModuleContact\ModuleContactHelper
