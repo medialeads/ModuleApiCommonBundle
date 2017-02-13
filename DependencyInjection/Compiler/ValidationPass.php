@@ -28,6 +28,6 @@ class ValidationPass implements CompilerPassInterface
             $container->addResource(new FileResource($validationFile));
         }
 
-        $container->getDefinition('validator.builder')->addMethodCall('addYamlMappings', $validationFiles);
+        $container->getDefinition('validator.builder')->addMethodCall('addYamlMappings', array($validationFiles));
     }
 }
