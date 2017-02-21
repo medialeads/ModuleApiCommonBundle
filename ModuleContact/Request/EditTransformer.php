@@ -3,7 +3,7 @@
 namespace Module\ApiCommonBundle\ModuleContact\Request;
 
 use libphonenumber\PhoneNumber;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 class EditTransformer
 {
