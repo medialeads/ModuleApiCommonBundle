@@ -9,6 +9,7 @@
   },
   "require": {
     "php": ">=5.6",
-    "symfony/symfony": ">=3.2"
+    "symfony/symfony": ">=3.2",
+    "misd/phone-number-bundle": "^1.2"
   }
 }

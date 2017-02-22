@@ -15,9 +15,17 @@ class ModuleApiCommonExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
+        $requiredBundles = array(
+            'MisdPhoneNumberBundle'
+        );
+        $bundles = $container->getParameter('kernel.bundles');
+        foreach ($requiredBundles as $requiredBundle) {
+            if (!isset($bundles[$requiredBundle])) {
+                throw new \Exception();
+            }
+        }
+
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('module_contact.yml');
-
-
     }
 }
