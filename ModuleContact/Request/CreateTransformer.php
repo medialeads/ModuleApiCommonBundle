@@ -21,8 +21,9 @@ class CreateTransformer
         }
 
         return new Create($parameterBag->get('companyName'), $parameterBag->get('lastName'), $parameterBag->get('firstName'),
-            $parameterBag->get('email'), $phoneNumber, $parameterBag->get('countryCode'), $parameterBag->get('locality'),
-            $parameterBag->get('postalCode'), $parameterBag->get('addressLine1'), $parameterBag->get('addressLine2'),
+            $parameterBag->get('email'), $phoneNumber, $parameterBag->get('countryCode'), $parameterBag->get('administrativeArea'),
+            $parameterBag->get('locality'), $parameterBag->get('dependentLocality'), $parameterBag->get('postalCode'),
+            $parameterBag->get('sortingCode'), $parameterBag->get('addressLine1'), $parameterBag->get('addressLine2'),
             $parameterBag->get('username'), $parameterBag->get('encryptedPassword'), $parameterBag->get('iv'));
     }
 
@@ -40,8 +41,11 @@ class CreateTransformer
             'email' => $create->getEmail(),
             'phoneNumber' => $create->getPhoneNumber()->serialize(),
             'countryCode' => $create->getCountryCode(),
+            'administrativeArea' => $create->getAdministrativeArea(),
             'locality' => $create->getLocality(),
+            'dependentLocality' => $create->getDependentLocality(),
             'postalCode' => $create->getPostalCode(),
+            'sortingCode' => $create->getSortingCode(),
             'addressLine1' => $create->getAddressLine1(),
             'addressLine2' => $create->getAddressLine2(),
             'username' => $create->getUsername(),

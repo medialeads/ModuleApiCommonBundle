@@ -21,8 +21,9 @@ class EditTransformer
         }
 
         return new Edit($parameterBag->get('companyName'), $parameterBag->get('lastName'), $parameterBag->get('firstName'),
-            $parameterBag->get('email'), $phoneNumber, $parameterBag->get('countryCode'), $parameterBag->get('locality'),
-            $parameterBag->get('postalCode'), $parameterBag->get('addressLine1'), $parameterBag->get('addressLine2'),
+            $parameterBag->get('email'), $phoneNumber, $parameterBag->get('countryCode'), $parameterBag->get('administrativeArea'),
+            $parameterBag->get('locality'), $parameterBag->get('dependentLocality'), $parameterBag->get('postalCode'),
+            $parameterBag->get('sortingCode'), $parameterBag->get('addressLine1'), $parameterBag->get('addressLine2'),
             $parameterBag->get('username'));
     }
 
@@ -40,8 +41,11 @@ class EditTransformer
             'email' => $edit->getEmail(),
             'phoneNumber' => $edit->getPhoneNumber()->serialize(),
             'countryCode' => $edit->getCountryCode(),
+            'administrativeArea' => $edit->getAdministrativeArea(),
             'locality' => $edit->getLocality(),
+            'dependentLocality' => $edit->getDependentLocality(),
             'postalCode' => $edit->getPostalCode(),
+            'sortingCode' => $edit->getSortingCode(),
             'addressLine1' => $edit->getAddressLine1(),
             'addressLine2' => $edit->getAddressLine2(),
             'username' => $edit->getUsername()
