@@ -1,0 +1,96 @@
+Module\ApiCommonBundle\ModuleQuoteHistory\Request\Create:
+    constraints:
+        - Module\ApiCommonBundle\ModuleQuoteHistory\Validation\Constraint\CreateContact: ~
+    properties:
+        supplierName:
+            - Length:
+                max: 255
+        contactType:
+            - Choice:
+                callback: getContactTypes
+        quoteLines:
+            - Count:
+                min: 1
+
+Module\ApiCommonBundle\ModuleQuoteHistory\Model\Contact:
+    properties:
+        companyName:
+            - Length:
+                max: 255
+        lastName:
+            - Length:
+                max: 255
+        firstName:
+            - Length:
+                max: 255
+        email:
+            - Email: ~
+            - Length:
+                max: 255
+        phoneNumber:
+            - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber: ~
+        countryCode:
+            - Country: ~
+            - Length:
+                max: 255
+        administrativeArea:
+            - Length:
+                max: 255
+        locality:
+            - Length:
+                max: 255
+        dependentLocality:
+            - Length:
+                max: 255
+        postalCode:
+            - Length:
+                max: 255
+        sortingCode:
+            - Length:
+                max: 255
+        addressLine1:
+            - Length:
+                max: 255
+        addressLine2:
+            - Length:
+                max: 255
+
+Module\ApiCommonBundle\ModuleQuoteHistory\Model\QuoteLine:
+    properties:
+        variantInternalReference:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        variantSupplierReference:
+            - Length:
+                max: 255
+        variantBrandName:
+            - Length:
+                max: 255
+        variantPriceValue:
+            - GreaterThan:
+                value: 0
+        quantity:
+            - NotBlank: ~
+            - GreaterThanOrEqual:
+                value: 1
+        quoteLineTranslations:
+            - Count:
+                min: 1
+
+Module\ApiCommonBundle\ModuleQuoteHistory\Model\QuoteLineTranslation:
+    properties:
+        language:
+            - NotBlank: ~
+            - Choice:
+                callback: [Module\CoreBundle\DependencyInjection\Configuration, getValidLanguages]
+            - Length:
+                max: 255
+        variantName:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        variantAttributesData:
+            - All:
+                constraints:
+                    - Type: scalar

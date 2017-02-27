@@ -13,8 +13,12 @@ Module\ApiCommonBundle\ModuleContact\Request\Create:
             - Email: ~
             - Length:
                 max: 255
+        phoneNumber:
+            - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber: ~
         countryCode:
             - Country: ~
+            - Length:
+                max: 255
         administrativeArea:
             - Length:
                 max: 255
@@ -60,8 +64,12 @@ Module\ApiCommonBundle\ModuleContact\Request\Edit:
             - Email: ~
             - Length:
                 max: 255
+        phoneNumber:
+            - Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber: ~
         countryCode:
             - Country: ~
+            - Length:
+                max: 2
         administrativeArea:
             - Length:
                 max: 255

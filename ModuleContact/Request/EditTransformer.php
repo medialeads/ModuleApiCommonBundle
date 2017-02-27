@@ -12,7 +12,7 @@ class EditTransformer
      *
      * @return Edit
      */
-    public static function fromRequest(ParameterBag $parameterBag)
+    public static function fromParameters(ParameterBag $parameterBag)
     {
         $phoneNumber = null;
         if ($parameterBag->has('phoneNumber')) {
@@ -34,12 +34,17 @@ class EditTransformer
      */
     public static function toParameters(Edit $edit)
     {
+        $phoneNumber = $edit->getPhoneNumber();
+        if ($phoneNumber instanceof PhoneNumber) {
+            $phoneNumber = $phoneNumber->serialize();
+        }
+
         return array(
             'companyName' => $edit->getCompanyName(),
             'lastName' => $edit->getLastName(),
             'firstName' => $edit->getFirstName(),
             'email' => $edit->getEmail(),
-            'phoneNumber' => $edit->getPhoneNumber()->serialize(),
+            'phoneNumber' => $phoneNumber,
             'countryCode' => $edit->getCountryCode(),
             'administrativeArea' => $edit->getAdministrativeArea(),
             'locality' => $edit->getLocality(),

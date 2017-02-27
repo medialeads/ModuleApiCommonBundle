@@ -12,7 +12,7 @@ class CreateTransformer
      *
      * @return Create
      */
-    public static function fromRequest(ParameterBag $parameterBag)
+    public static function fromParameters(ParameterBag $parameterBag)
     {
         $phoneNumber = null;
         if ($parameterBag->has('phoneNumber')) {
@@ -34,12 +34,17 @@ class CreateTransformer
      */
     public static function toParameters(Create $create)
     {
+        $phoneNumber = $create->getPhoneNumber();
+        if ($phoneNumber instanceof PhoneNumber) {
+            $phoneNumber = $phoneNumber->serialize();
+        }
+
         return array(
             'companyName' => $create->getCompanyName(),
             'lastName' => $create->getLastName(),
             'firstName' => $create->getFirstName(),
             'email' => $create->getEmail(),
-            'phoneNumber' => $create->getPhoneNumber()->serialize(),
+            'phoneNumber' => $phoneNumber,
             'countryCode' => $create->getCountryCode(),
             'administrativeArea' => $create->getAdministrativeArea(),
             'locality' => $create->getLocality(),

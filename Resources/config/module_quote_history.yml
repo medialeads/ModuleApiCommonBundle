@@ -1,0 +1,5 @@
+services:
+    module_api_common.module_quote_history.validator.create_contact:
+        class: Module\ApiCommonBundle\ModuleQuoteHistory\Validator\Constraint\CreateContactValidator
+        tags:
+            - { name: validator.constraint_validator }

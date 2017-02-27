@@ -27,5 +27,6 @@ class ModuleApiCommonExtension extends Extension
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('module_contact.yml');
+        $loader->load('module_quote_history.yml');
     }
 }

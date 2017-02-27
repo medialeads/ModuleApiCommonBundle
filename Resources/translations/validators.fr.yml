@@ -1,0 +1,4 @@
+module_api_common:
+    module_quote_history:
+        create_contact:
+            invalid: Le contact n'est pas du type attendu.
