@@ -6,7 +6,6 @@ use libphonenumber\PhoneNumber;
 use Module\ApiCommonBundle\ModuleQuoteHistory\Model\Contact;
 use Module\ApiCommonBundle\ModuleQuoteHistory\Model\QuoteLine;
 use Module\ApiCommonBundle\ModuleQuoteHistory\Model\QuoteLineTranslation;
-use Module\CoreBundle\Exception\NotImplementedException;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 class CreateTransformer
@@ -73,14 +72,15 @@ class CreateTransformer
                     }
                 }
 
-                $quoteLines[] = new QuoteLine($quoteLineParameterBag->get('variantInternalReference'),
+                $quoteLines[] = new QuoteLine($quoteLineParameterBag->get('supplierName'),
+                    $quoteLineParameterBag->get('variantInternalReference'),
                     $quoteLineParameterBag->get('variantSupplierReference'), $quoteLineParameterBag->get('variantBrandName'),
                     $quoteLineParameterBag->get('variantPriceValue'), $quoteLineParameterBag->get('quantity'),
                     $quoteLineParameterBag->get('comment'), $quoteLineTranslations);
             }
         }
 
-        return new Create($parameterBag->get('supplierName'), $parameterBag->get('comment'), $contact, $contactType, $quoteLines);
+        return new Create($parameterBag->get('comment'), $contact, $contactType, $quoteLines);
     }
 
     /**
@@ -94,6 +94,8 @@ class CreateTransformer
         $contact = $create->getContact();
         switch ($contactType) {
             case Create::CONTACT_TYPE_MODULE_CONTACT:
+                break;
+            case Create::CONTACT_TYPE_MODULE_QUOTE_HISTORY:
                 if (!$contact instanceof Contact) {
                     throw new \LogicException();
                 }
@@ -120,11 +122,8 @@ class CreateTransformer
                 );
 
                 break;
-            case Create::CONTACT_TYPE_MODULE_QUOTE_HISTORY:
-
-                break;
             default:
-                throw new NotImplementedException();
+                throw new \Exception();
         }
 
         $quoteLines = $create->getQuoteLines();
@@ -145,6 +144,7 @@ class CreateTransformer
                 }
 
                 $quoteLines[] = array(
+                    'supplierName' => $quoteLine->getSupplierName(),
                     'variantInternalReference' => $quoteLine->getVariantInternalReference(),
                     'variantSupplierReference' => $quoteLine->getVariantSupplierReference(),
                     'variantBrandName' => $quoteLine->getVariantBrandName(),
@@ -157,7 +157,6 @@ class CreateTransformer
         }
 
         return array(
-            'supplierName' => $create->getSupplierName(),
             'comment' => $create->getComment(),
             'contact' => $contact,
             'contactType' => $contactType,

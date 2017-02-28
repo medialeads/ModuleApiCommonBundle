@@ -4,7 +4,6 @@ namespace Module\ApiCommonBundle\ModuleQuoteHistory\Validator\Constraint;
 
 use Module\ApiCommonBundle\ModuleQuoteHistory\Model\Contact;
 use Module\ApiCommonBundle\ModuleQuoteHistory\Request\Create;
-use Module\CoreBundle\Exception\NotImplementedException;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Exception\ConstraintDefinitionException;
@@ -45,7 +44,7 @@ class CreateContactValidator extends ConstraintValidator
             case null:
                 return;
             default:
-                throw new NotImplementedException();
+                throw new \Exception();
         }
 
         $this->context->buildViolation($constraint->invalidMessage)->addViolation();
