@@ -7,6 +7,11 @@ class QuoteLine
     /**
      * @var string
      */
+    private $supplierName;
+
+    /**
+     * @var string
+     */
     private $variantInternalReference;
 
     /**
@@ -40,6 +45,7 @@ class QuoteLine
     private $quoteLineTranslations;
 
     /**
+     * @param string $supplierName
      * @param string $variantInternalReference
      * @param string $variantSupplierReference
      * @param string $variantBrandName
@@ -48,9 +54,10 @@ class QuoteLine
      * @param string $comment
      * @param array $quoteLineTranslations
      */
-    public function __construct($variantInternalReference, $variantSupplierReference, $variantBrandName, $variantPriceValue,
-        $quantity, $comment, array $quoteLineTranslations)
+    public function __construct($supplierName, $variantInternalReference, $variantSupplierReference, $variantBrandName,
+        $variantPriceValue, $quantity, $comment, array $quoteLineTranslations)
     {
+        $this->supplierName = $supplierName;
         $this->variantInternalReference = $variantInternalReference;
         $this->variantSupplierReference = $variantSupplierReference;
         $this->variantBrandName = $variantBrandName;
@@ -58,6 +65,14 @@ class QuoteLine
         $this->quantity = $quantity;
         $this->comment = $comment;
         $this->quoteLineTranslations = $quoteLineTranslations;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSupplierName()
+    {
+        return $this->supplierName;
     }
 
     /**

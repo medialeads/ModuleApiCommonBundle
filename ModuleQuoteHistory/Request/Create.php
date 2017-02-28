@@ -17,11 +17,6 @@ class Create
     /**
      * @var string
      */
-    private $supplierName;
-
-    /**
-     * @var string
-     */
     private $comment;
 
     /**
@@ -40,27 +35,17 @@ class Create
     private $quoteLines;
 
     /**
-     * @param string $supplierName
      * @param string $comment
      * @param mixed $contact
      * @param string $contactType
      * @param array $quoteLines
      */
-    public function __construct($supplierName, $comment, $contact, $contactType, array $quoteLines)
+    public function __construct($comment, $contact, $contactType, array $quoteLines)
     {
-        $this->supplierName = $supplierName;
         $this->comment = $comment;
         $this->contact = $contact;
         $this->contactType = $contactType;
         $this->quoteLines = $quoteLines;
-    }
-
-    /**
-     * @return string
-     */
-    public function getSupplierName()
-    {
-        return $this->supplierName;
     }
 
     /**

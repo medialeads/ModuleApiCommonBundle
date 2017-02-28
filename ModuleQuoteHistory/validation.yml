@@ -2,9 +2,6 @@ Module\ApiCommonBundle\ModuleQuoteHistory\Request\Create:
     constraints:
         - Module\ApiCommonBundle\ModuleQuoteHistory\Validation\Constraint\CreateContact: ~
     properties:
-        supplierName:
-            - Length:
-                max: 255
         contactType:
             - Choice:
                 callback: getContactTypes
@@ -57,6 +54,9 @@ Module\ApiCommonBundle\ModuleQuoteHistory\Model\Contact:
 
 Module\ApiCommonBundle\ModuleQuoteHistory\Model\QuoteLine:
     properties:
+        supplierName:
+            - Length:
+                max: 255
         variantInternalReference:
             - NotBlank: ~
             - Length:
