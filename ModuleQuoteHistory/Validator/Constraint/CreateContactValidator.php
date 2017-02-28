@@ -30,13 +30,13 @@ class CreateContactValidator extends ConstraintValidator
 
         switch ($value->getContactType()) {
             case Create::CONTACT_TYPE_MODULE_CONTACT:
-                if ($value->getContact() instanceof Contact) {
+                if (is_scalar($value->getContact())) {
                     return;
                 }
 
                 break;
             case Create::CONTACT_TYPE_MODULE_QUOTE_HISTORY:
-                if (is_scalar($value->getContact())) {
+                if ($value->getContact() instanceof Contact) {
                     return;
                 }
 

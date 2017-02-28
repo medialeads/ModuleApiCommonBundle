@@ -1,6 +1,6 @@
 Module\ApiCommonBundle\ModuleQuoteHistory\Request\Create:
     constraints:
-        - Module\ApiCommonBundle\ModuleQuoteHistory\Validation\Constraint\CreateContact: ~
+        - Module\ApiCommonBundle\ModuleQuoteHistory\Validator\Constraint\CreateContact: ~
     properties:
         contactType:
             - Choice:

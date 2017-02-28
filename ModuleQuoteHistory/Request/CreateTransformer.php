@@ -22,6 +22,10 @@ class CreateTransformer
         $contactData = $parameterBag->get('contact');
         switch ($contactType) {
             case Create::CONTACT_TYPE_MODULE_CONTACT:
+                $contact = $contactData;
+
+                break;
+            case Create::CONTACT_TYPE_MODULE_QUOTE_HISTORY:
                 if (is_array($contactData)) {
                     $contactParameterBag = new ParameterBag($contactData);
 
@@ -38,10 +42,6 @@ class CreateTransformer
                         $contactParameterBag->get('postalCode'), $contactParameterBag->get('sortingCode'),
                         $contactParameterBag->get('addressLine1'), $contactParameterBag->get('addressLine2'));
                 }
-
-                break;
-            case Create::CONTACT_TYPE_MODULE_QUOTE_HISTORY:
-                $contact = $contactData;
 
                 break;
         }
