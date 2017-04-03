@@ -5,9 +5,9 @@ namespace Module\ApiCommonBundle\ModuleMenu\Request;
 class Get
 {
     /**
-     * @var string
+     * @var array
      */
-    private $urlMask;
+    private $urlMasks;
 
     /**
      * @var string
@@ -15,21 +15,21 @@ class Get
     private $language;
 
     /**
-     * @param string $urlMask
+     * @param array $urlMasks
      * @param string $language
      */
-    public function __construct($urlMask, $language)
+    public function __construct(array $urlMasks, $language)
     {
-        $this->urlMask = $urlMask;
+        $this->urlMasks = $urlMasks;
         $this->language = $language;
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getUrlMask()
+    public function getUrlMasks()
     {
-        return $this->urlMask;
+        return $this->urlMasks;
     }
 
     /**

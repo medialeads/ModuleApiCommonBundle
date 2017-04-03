@@ -13,7 +13,7 @@ class GetTransformer
      */
     public static function fromParameters(ParameterBag $parameterBag)
     {
-        return new Get($parameterBag->get('urlMask'), $parameterBag->get('language'));
+        return new Get($parameterBag->get('urlMasks', array()), $parameterBag->get('language'));
     }
 
     /**
@@ -24,7 +24,7 @@ class GetTransformer
     public static function toParameters(Get $get)
     {
         $parameters = array(
-            'urlMask' => $get->getUrlMask()
+            'urlMasks' => $get->getUrlMasks()
         );
 
         $language = $get->getLanguage();
