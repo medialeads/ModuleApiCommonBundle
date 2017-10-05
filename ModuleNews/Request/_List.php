@@ -5,27 +5,27 @@ namespace Module\ApiCommonBundle\ModuleNews\Request;
 class _List
 {
     /**
-     * @var string
+     * @var string|null
      */
     private $language;
 
     /**
-     * @var int
+     * @var int|null
      */
     private $limit;
 
     /**
-     * @param string $language
-     * @param int $limit
+     * @param string|null $language
+     * @param int|null $limit
      */
-    public function __construct($language, $limit)
+    public function __construct($language = null, $limit = null)
     {
         $this->language = $language;
         $this->limit = $limit;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getLanguage()
     {
@@ -33,7 +33,7 @@ class _List
     }
 
     /**
-     * @return int
+     * @return int|null
      */
     public function getLimit()
     {

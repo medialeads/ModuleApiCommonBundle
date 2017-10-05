@@ -23,13 +23,16 @@ class ListTransformer
      */
     public static function toParameters(_List $list)
     {
-        $parameters = array(
-            'limit' => $list->getLimit()
-        );
+        $parameters = array();
 
         $language = $list->getLanguage();
         if (null !== $language) {
             $parameters['language'] = $language;
+        }
+
+        $limit = $list->getLimit();
+        if (null !== $limit) {
+            $parameters['limit'] = $limit;
         }
 
         return $parameters;
