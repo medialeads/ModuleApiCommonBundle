@@ -21,7 +21,8 @@ class ValidationPass implements CompilerPassInterface
             return realpath(sprintf('%s/../../%s/validation.yml', __DIR__, $folder));
         }, array(
             'ModuleContact',
-            'ModuleQuoteHistory'
+            'ModuleQuoteHistory',
+            'ModuleNews'
         ));
 
         foreach ($validationFiles as $validationFile) {

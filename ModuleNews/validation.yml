@@ -1,0 +1,5 @@
+Module\ApiCommonBundle\ModuleNews\Request\_List:
+    properties:
+        limit:
+            - GreaterThanOrEqual:
+                value: 1
