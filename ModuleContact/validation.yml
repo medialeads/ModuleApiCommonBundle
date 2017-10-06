@@ -99,6 +99,31 @@ Module\ApiCommonBundle\ModuleContact\Request\Login:
     properties:
         username:
             - NotBlank: ~
+            - Length:
+                max: 255
+        encryptedPassword:
+            - NotBlank: ~
+        iv:
+            - NotBlank: ~
+
+Module\ApiCommonBundle\ModuleContact\Request\RequestPasswordRecover:
+    properties:
+        username:
+            - NotBlank: ~
+            - Length:
+                max: 255
+
+Module\ApiCommonBundle\ModuleContact\Request\SubmitPasswordRecover:
+    properties:
+        username:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        token:
+            - NotBlank: ~
+            - Length:
+                min: 40
+                max: 40
         encryptedPassword:
             - NotBlank: ~
         iv:
