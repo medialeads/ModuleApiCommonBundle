@@ -13,7 +13,7 @@ class SubmitPasswordRecoverTransformer
      */
     public static function fromParameters(ParameterBag $parameterBag)
     {
-        return new SubmitPasswordRecover($parameterBag->get('username'), $parameterBag->get('token'), $parameterBag->get('encryptedPassword'), $parameterBag->get('iv'));
+        return new SubmitPasswordRecover($parameterBag->get('username'), $parameterBag->get('encryptedPassword'), $parameterBag->get('iv'));
     }
 
     /**
@@ -25,7 +25,6 @@ class SubmitPasswordRecoverTransformer
     {
         return array(
             'username' => $submitPasswordRecover->getUsername(),
-            'token' => $submitPasswordRecover->getToken(),
             'encryptedPassword' => $submitPasswordRecover->getEncryptedPassword(),
             'iv' => $submitPasswordRecover->getIv()
         );
