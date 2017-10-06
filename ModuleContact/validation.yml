@@ -119,11 +119,6 @@ Module\ApiCommonBundle\ModuleContact\Request\SubmitPasswordRecover:
             - NotBlank: ~
             - Length:
                 max: 255
-        token:
-            - NotBlank: ~
-            - Length:
-                min: 40
-                max: 40
         encryptedPassword:
             - NotBlank: ~
         iv:

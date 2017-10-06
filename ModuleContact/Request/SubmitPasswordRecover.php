@@ -12,11 +12,6 @@ class SubmitPasswordRecover
     /**
      * @var string
      */
-    private $token;
-
-    /**
-     * @var string
-     */
     private $encryptedPassword;
 
     /**
@@ -26,14 +21,12 @@ class SubmitPasswordRecover
 
     /**
      * @param string $username
-     * @param string $token
      * @param string $encryptedPassword
      * @param string $iv
      */
-    public function __construct($username, $token, $encryptedPassword, $iv)
+    public function __construct($username, $encryptedPassword, $iv)
     {
         $this->username = $username;
-        $this->token = $token;
         $this->encryptedPassword = $encryptedPassword;
         $this->iv = $iv;
     }
@@ -44,14 +37,6 @@ class SubmitPasswordRecover
     public function getUsername()
     {
         return $this->username;
-    }
-
-    /**
-     * @return string
-     */
-    public function getToken()
-    {
-        return $this->token;
     }
 
     /**
