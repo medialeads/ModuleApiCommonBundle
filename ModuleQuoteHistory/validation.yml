@@ -67,9 +67,9 @@ Module\ApiCommonBundle\ModuleQuoteHistory\Model\QuoteLine:
         variantBrandName:
             - Length:
                 max: 255
-        variantPriceValue:
-            - GreaterThan:
-                value: 0
+#        variantPriceValue:
+#            - GreaterThan:
+#                value: 0
         quantity:
             - NotBlank: ~
             - GreaterThanOrEqual:
